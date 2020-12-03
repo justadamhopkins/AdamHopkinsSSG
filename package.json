@@ -2,7 +2,7 @@
   "name": "adamhopkins.dev",
   "description": "adamhopkins.dev Gatsby site",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Adam Hopkins",
   "dependencies": {
     "@types/node": "^8.0.7",
     "@types/react": "17.0.0",
@@ -30,8 +30,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.19.1",
+    "@types/react-helmet": "^6.1.0",
     "cross-env": "^7.0.2",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "prettier": "^1.19.1"
   }
 }
