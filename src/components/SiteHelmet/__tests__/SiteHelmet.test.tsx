@@ -16,7 +16,7 @@ describe('SiteHelmet', () => {
       }
     })
   })
-  test('renders', () => {
+  test('renders helmet', () => {
     render(<SiteHelmet pageTitle='testme' />)
 
     const helmet = Helmet.peek()
