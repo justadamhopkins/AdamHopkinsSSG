@@ -1,7 +1,8 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { SiteHelmet } from '../SiteHelmet'
 import { useStaticQuery } from 'gatsby'
+import { Helmet } from 'react-helmet'
 
 describe('SiteHelmet', () => {
   beforeAll(() => {
@@ -16,8 +17,10 @@ describe('SiteHelmet', () => {
     })
   })
   test('renders', () => {
-    const { debug } = render(<SiteHelmet pageTitle='testme' />)
+    render(<SiteHelmet pageTitle='testme' />)
 
-    console.log(debug())
+    const helmet = Helmet.peek()
+
+    expect(helmet.title).toEqual('testme - test title')
   })
 })
