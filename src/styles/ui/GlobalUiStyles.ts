@@ -2,19 +2,16 @@ import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
 export const GlobalUiStyles = createGlobalStyle`
-  ${reset}
-    *, *:before, *:after {
-    box-sizing: border-box;
-  }
-  html {
-    box-sizing: border-box;
-  }
   :root {
     --red: #ff4949;
     --black: #2e2e2e;
     --yellow: #ffc600;
     --white: #fff;
     --grey: #efefef;
+  }
+  ${reset}
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
   html {
     box-sizing: border-box;
