@@ -1,63 +1,10 @@
 import React, { FC, useState } from 'react'
 import styled, { css } from 'styled-components'
+import { Hamburger } from '../Hamburger/Hamburger'
 
 const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
-`
-
-const StyledHamburger = styled.div<{ active: boolean }>`
-  span {
-    width: 40px;
-    height: 4px;
-    background-color: red;
-    display: block;
-    margin: 8px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  ${({ active }) =>
-    active &&
-    css`
-      -webkit-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
-      -webkit-transition-delay: 0.6s;
-      -o-transition-delay: 0.6s;
-      transition-delay: 0.6s;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      transform: rotate(45deg);
-      span {
-        :nth-child(2) {
-          width: 0px;
-        }
-        :nth-child(1),
-        :nth-child(3) {
-          -webkit-transition-delay: 0.3s;
-          -o-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-        }
-        :nth-child(1) {
-          -webkit-transform: translateY(13px);
-          -ms-transform: translateY(13px);
-          -o-transform: translateY(13px);
-          transform: translateY(13px);
-        }
-        :nth-child(3) {
-          -webkit-transform: translateY(-13px) rotate(90deg);
-          -ms-transform: translateY(-13px) rotate(90deg);
-          -o-transform: translateY(-13px) rotate(90deg);
-          transform: translateY(-13px) rotate(90deg);
-        }
-      }
-    `};
-
-  :hover {
-    cursor: pointer;
-  }
 `
 
 export const Nav: FC = () => {
@@ -68,14 +15,14 @@ export const Nav: FC = () => {
       <div>test</div>
       <div>test</div>
       <div>
-        <StyledHamburger
+        <Hamburger
           active={toggleHamburger}
-          onClick={() => setToggleHamburger(!toggleHamburger)}
+          setToggleHamburger={setToggleHamburger}
         >
           <span></span>
           <span></span>
           <span></span>
-        </StyledHamburger>
+        </Hamburger>
       </div>
     </Wrapper>
   )
