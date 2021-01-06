@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { GlobalFontStyles } from '../../styles/fonts/GlobalFontStyles'
 import { GlobalUiStyles } from '../../styles/ui/GlobalUiStyles'
-import { Nav } from '../Nav/Nav'
+import { Header } from '../Header/Header'
 import styled, { ThemeProvider } from 'styled-components'
 
 const StyledSiteWrapper = styled.div`
@@ -14,7 +14,7 @@ export const Layout: FC<{}> = ({ children }) => {
       <GlobalFontStyles />
       <GlobalUiStyles />
       <StyledSiteWrapper>
-        <Nav />
+        <Header />
         {children}
       </StyledSiteWrapper>
     </ThemeProvider>
