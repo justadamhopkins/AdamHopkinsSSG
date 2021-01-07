@@ -21,9 +21,27 @@ const StyledNav = styled(motion.nav)`
     padding: 0;
     margin: 0;
     li {
+      font-family: 'LeagueSpartanBold', sans-serif;
+      letter-spacing: 2px;
+      min-width: 200px;
       color: var(--white);
       font-size: 2rem;
-      padding: 5px 0;
+      padding: 5px;
+      text-decoration: underline;
+      transition: all 0.15s ease;
+      background-size: 100% 200%;
+      background-position: 0 -100%;
+      text-align: center;
+      margin: 5px 0;
+      background-image: linear-gradient(
+        to top,
+        transparent 50%,
+        var(--smoothGreen) 50%
+      );
+      &:hover {
+        color: var(--materialBlack);
+        background-position: 0 0;
+      }
     }
   }
 `
