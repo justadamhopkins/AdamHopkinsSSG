@@ -6,7 +6,6 @@ import { Nav } from '../Nav/Nav'
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: var(--darkPurps);
 `
 
 export const Header: FC = () => {
@@ -21,7 +20,7 @@ export const Header: FC = () => {
           setToggleHamburger={setToggleHamburger}
         />
       </Wrapper>
-      <Nav />
+      <Nav isNavOpen={toggleHamburger} />
     </>
   )
 }
