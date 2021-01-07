@@ -46,9 +46,28 @@ const StyledNav = styled(motion.nav)`
   }
 `
 
-export const Nav: FC = () => {
+const variants = {
+  open: { x: 0 },
+  closed: {
+    x: '-100%',
+    transition: {
+      delay: 0.3
+    }
+  }
+}
+
+type Props = {
+  isNavOpen: boolean
+}
+
+export const Nav: FC<Props> = ({ isNavOpen }) => {
   return (
-    <StyledNav>
+    <StyledNav
+      variants={variants}
+      initial='closed'
+      animate={isNavOpen ? 'open' : 'closed'}
+      transition={{ damping: 300 }}
+    >
       <div>
         <ul>
           <li>About</li>
