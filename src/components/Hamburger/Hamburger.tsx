@@ -2,10 +2,11 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import styled, { css } from 'styled-components'
 
 const StyledHamburger = styled.div<{ active: boolean }>`
+  z-index: 1;
   span {
     width: 40px;
     height: 4px;
-    background-color: red;
+    background-color: var(--materialBlack);
     display: block;
     margin: 8px auto;
     -webkit-transition: all 0.3s ease-in-out;
@@ -26,6 +27,7 @@ const StyledHamburger = styled.div<{ active: boolean }>`
       -o-transform: rotate(45deg);
       transform: rotate(45deg);
       span {
+        background-color: var(--white);
         :nth-child(2) {
           width: 0px;
         }
