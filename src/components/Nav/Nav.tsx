@@ -51,14 +51,44 @@ const variants = {
   closed: {
     x: '-100%',
     transition: {
-      delay: 0.3
+      delay: 1
     }
   }
+}
+
+const ulVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+      staggerDirection: 1,
+      when: 'afterChildren'
+    }
+  },
+  closed: {
+    transition: {
+      staggerChildren: 0.3,
+      staggerDirection: -1,
+      when: 'afterChildren'
+    }
+  }
+}
+
+const linkVariants = {
+  open: {
+    y: 0,
+    opacity: 1
+  },
+  closed: { y: '-20', opacity: 0 }
 }
 
 type Props = {
   isNavOpen: boolean
 }
+
+const links = ['About', 'Work', 'Contact']
 
 export const Nav: FC<Props> = ({ isNavOpen }) => {
   return (
@@ -69,11 +99,13 @@ export const Nav: FC<Props> = ({ isNavOpen }) => {
       transition={{ damping: 300 }}
     >
       <div>
-        <ul>
-          <li>About</li>
-          <li>Work</li>
-          <li>Contact</li>
-        </ul>
+        <motion.ul variants={ulVariants}>
+          {links.map(link => (
+            <motion.li key={link} variants={linkVariants}>
+              {link}
+            </motion.li>
+          ))}
+        </motion.ul>
       </div>
     </StyledNav>
   )
