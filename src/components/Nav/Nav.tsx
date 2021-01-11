@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
@@ -41,7 +41,8 @@ const StyledNav = styled(motion.nav)`
           transparent 50%,
           var(--smoothGreen) 50%
         );
-        &:hover {
+        &:hover,
+        &[aria-current='page'] {
           color: var(--materialBlack);
           background-position: 0 0;
         }
@@ -50,7 +51,7 @@ const StyledNav = styled(motion.nav)`
   }
 `
 
-const variants = {
+const navVariants = {
   open: { x: 0 },
   closed: {
     x: '-100%',
@@ -90,11 +91,16 @@ const linkVariants = {
 
 type Props = {
   isNavOpen: boolean
+  toggleNav: Dispatch<SetStateAction<boolean>>
 }
 
-const links = [
+export const pages = ['About', 'Work', 'Contact'] as const
+
+type Pages = typeof pages[number]
+
+const links: { path: string; name: Pages }[] = [
   {
-    path: '/about',
+    path: '/',
     name: 'About'
   },
   {
@@ -107,10 +113,10 @@ const links = [
   }
 ]
 
-export const Nav: FC<Props> = ({ isNavOpen }) => {
+export const Nav: FC<Props> = ({ isNavOpen, toggleNav }) => {
   return (
     <StyledNav
-      variants={variants}
+      variants={navVariants}
       initial='closed'
       animate={isNavOpen ? 'open' : 'closed'}
       transition={{ damping: 300 }}
@@ -118,7 +124,11 @@ export const Nav: FC<Props> = ({ isNavOpen }) => {
       <div>
         <motion.ul variants={ulVariants}>
           {links.map(({ path, name }) => (
-            <motion.li key={name} variants={linkVariants}>
+            <motion.li
+              key={name}
+              variants={linkVariants}
+              onClick={() => toggleNav(false)}
+            >
               <Link to={path}>{name}</Link>
             </motion.li>
           ))}
