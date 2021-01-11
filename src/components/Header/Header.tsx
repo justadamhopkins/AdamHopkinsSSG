@@ -9,18 +9,15 @@ const Wrapper = styled.div`
 `
 
 export const Header: FC = () => {
-  const [toggleHamburger, setToggleHamburger] = useState(false)
+  const [isNavOpen, setisNavOpen] = useState(false)
 
   return (
     <>
       <Wrapper>
         <div>test</div>
-        <Hamburger
-          active={toggleHamburger}
-          setToggleHamburger={setToggleHamburger}
-        />
+        <Hamburger active={isNavOpen} toggleHamburger={setisNavOpen} />
       </Wrapper>
-      <Nav isNavOpen={toggleHamburger} />
+      <Nav isNavOpen={isNavOpen} toggleNav={setisNavOpen} />
     </>
   )
 }
