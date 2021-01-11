@@ -58,14 +58,14 @@ const StyledHamburger = styled.div<{ active: boolean }>`
 
 type Props = {
   active: boolean
-  setToggleHamburger: Dispatch<SetStateAction<boolean>>
+  toggleHamburger: Dispatch<SetStateAction<boolean>>
 }
 
-export const Hamburger: FC<Props> = ({ active, setToggleHamburger }) => {
+export const Hamburger: FC<Props> = ({ active, toggleHamburger }) => {
   return (
     <StyledHamburger
       active={active}
-      onClick={() => setToggleHamburger(!active)}
+      onClick={() => toggleHamburger(!active)}
       data-testid='hamburger'
     >
       <span></span>
