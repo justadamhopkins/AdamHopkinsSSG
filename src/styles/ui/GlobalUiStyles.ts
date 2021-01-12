@@ -35,4 +35,12 @@ export const GlobalUiStyles = createGlobalStyle`
     letter-spacing: 0;
     background-color: '#f7fafc';
   }
+  .light {
+    --background: #f1faee;
+    --dog: blue;
+  }
+  .dark {
+    --background: #1d3557;
+    --dog: red;
+  }
 `
