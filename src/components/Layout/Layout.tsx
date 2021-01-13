@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { useThemeSwitcher } from '../../hooks/useThemeSwitcher'
 
 const StyledSiteWrapper = styled.div`
-  margin: 1.5rem;
+  padding: 2rem;
   background-color: var(--background);
   color: var(--dog);
 `
@@ -19,8 +19,7 @@ export const Layout: FC<{}> = ({ children }) => {
       <GlobalFontStyles />
       <GlobalUiStyles />
       <StyledSiteWrapper className={theme}>
-        <div onClick={toggleTheme}>click me</div>
-        <Header />
+        <Header toggleTheme={toggleTheme} />
         {children}
       </StyledSiteWrapper>
     </>
