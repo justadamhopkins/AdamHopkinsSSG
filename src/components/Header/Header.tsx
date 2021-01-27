@@ -2,16 +2,13 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
 import { Hamburger } from '../Hamburger/Hamburger'
 import { Nav } from '../Nav/Nav'
+import { SwitchToggle } from '../SwitchToggle/SwitchToggle'
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  div:nth-child(1) {
-    align-self: center;
-    text-align: center;
-    flex-grow: 1;
-  }
+  align-items: flex-end;
 `
 
 interface Props {
@@ -24,8 +21,8 @@ export const Header: FC<Props> = ({ toggleTheme }) => {
   return (
     <>
       <Wrapper>
-        <div onClick={toggleTheme}>click me</div>
         <Hamburger active={isNavOpen} toggleHamburger={setisNavOpen} />
+        <SwitchToggle toggleTheme={toggleTheme} />
       </Wrapper>
       <Nav isNavOpen={isNavOpen} toggleNav={setisNavOpen} />
     </>
