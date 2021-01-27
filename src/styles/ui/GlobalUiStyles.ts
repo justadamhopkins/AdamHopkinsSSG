@@ -12,8 +12,8 @@ export const GlobalUiStyles = createGlobalStyle`
     --darkGrey: #464655;
     --darkPurps: #686276;
     --darkLilac: #907e96;
-    --lightLilac: #bb9bb5;
     --darkPink: #e8b9d2;
+    --lightLilac: #bb9bb5;
     --lightGrey: #c0c5d1;
     --smoothPurple: #673ab7;
     --smoothGrey: #b0a8b9;
@@ -36,11 +36,13 @@ export const GlobalUiStyles = createGlobalStyle`
     background-color: '#f7fafc';
   }
   .light {
-    --background: #f1faee;
-    --dog: blue;
+    --background: #c0c5d1;
+    --secondaryBackground: #673ab7;
+    --thirdBackground: #b0a8b9
   }
   .dark {
-    --background: #1d3557;
-    --dog: red;
+    --background: #282c35;
+    --secondaryBackground: #e8b9d2;
+    --thirdBackground: #464655;
   }
 `
