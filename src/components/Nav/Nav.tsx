@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 const StyledNav = styled(motion.nav)`
   width: 100vw;
   height: 100vh;
-  background-color: var(--darkPurps);
+  background-color: var(--thirdBackground);
   position: fixed;
   top: 0;
   right: 0;
@@ -39,11 +39,11 @@ const StyledNav = styled(motion.nav)`
         background-image: linear-gradient(
           to top,
           transparent 50%,
-          var(--smoothGreen) 50%
+          var(--secondaryBackground) 50%
         );
         &:hover,
         &[aria-current='page'] {
-          color: var(--materialBlack);
+          color: var(--thirdBackground);
           background-position: 0 0;
         }
       }
