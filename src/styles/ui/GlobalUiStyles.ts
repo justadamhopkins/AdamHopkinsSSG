@@ -38,11 +38,13 @@ export const GlobalUiStyles = createGlobalStyle`
   .light {
     --background: #c0c5d1;
     --secondaryBackground: #673ab7;
-    --thirdBackground: #b0a8b9
+    --thirdBackground: #b0a8b9;
+    --fontPrimary: #efefef;
   }
   .dark {
     --background: #282c35;
     --secondaryBackground: #e8b9d2;
     --thirdBackground: #464655;
+    --fontPrimary: #464655;
   }
 `
