@@ -43,7 +43,7 @@ const StyledNav = styled(motion.nav)`
         );
         &:hover,
         &[aria-current='page'] {
-          color: var(--thirdBackground);
+          color: var(--fontPrimary);
           background-position: 0 0;
         }
       }
