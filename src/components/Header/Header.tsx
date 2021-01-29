@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: flex-start;
 `
 
 interface Props {
