@@ -10,8 +10,6 @@ const HomePage: FC<{}> = () => {
   return (
     <>
       <SiteHelmet pageTitle='Portfolio home page' />
-      <Header>Hi people</Header>
-      <p>Now go build something great.</p>
     </>
   )
 }
