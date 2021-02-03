@@ -23,6 +23,13 @@ export const GlobalUiStyles = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: inherit;
   }
+  html, 
+  body, 
+  #___gatsby, 
+  .light, 
+  .dark {
+    height: 100%;
+  }
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -46,5 +53,9 @@ export const GlobalUiStyles = createGlobalStyle`
     --secondaryBackground: #e8b9d2;
     --thirdBackground: #464655;
     --fontPrimary: #464655;
+  }
+  h1,h2,h3,h4,p {
+    font-family: 'LeagueSpartanBold';
+    letter-spacing: 1px;
   }
 `
