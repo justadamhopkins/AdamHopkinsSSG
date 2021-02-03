@@ -8,7 +8,7 @@ import { Footer } from '../Footer/Footer'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
-  height: calc(100vh - 4rem);
+  min-height: calc(100vh - 75px);
   padding: 2rem;
 `
 
@@ -21,7 +21,7 @@ export const Layout: FC<{}> = ({ children }) => {
       <GlobalUiStyles />
       <StyledSiteWrapper>
         <Header toggleTheme={toggleTheme} />
-        {children}
+        <main>{children}</main>
       </StyledSiteWrapper>
       <Footer />
     </div>
