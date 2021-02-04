@@ -4,33 +4,41 @@ import { PortfolioImage } from '../components/PortfolioImage/PortfolioImage'
 import { SiteHelmet } from '../components/SiteHelmet/SiteHelmet'
 import { breakpoint } from '../styles/ui/breakpoints'
 
-const StyledProfileWrapper = styled.section`
+export const StyledProfileWrapper = styled.section`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  padding-top: 2rem;
   h1 {
-    font-size: 2rem;
+    font-size: var(--font-size-medium);
   }
   h2 {
-    font-size: 1.8rem;
+    font-size: var(--font-size-small);
   }
   p {
-    font-size: 1.6rem;
+    font-size: var(--font-size-small);
   }
-  > div {
-    display: flex;
+  ${breakpoint.md`
+    padding: 2rem;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  ${breakpoint.sm`
+    justify-content: center;
+
     h1 {
-      font-size: 3rem
+      font-size:  var(--font-size-large);
     }
     h2 {
-      font-size: 2rem
+      font-size: var(--font-size-medium);
     }
   `};
+`
+
+const StyledCopyWrapper = styled.div`
+  padding-top: 1.5rem;
+  text-align: center;
+  ${breakpoint.md`
+    padding-top: 0;
+    padding-left: 2rem;
+  `}
 `
 
 const HomePage: FC<{}> = () => {
@@ -38,19 +46,12 @@ const HomePage: FC<{}> = () => {
     <>
       <SiteHelmet pageTitle='Portfolio home page' />
       <StyledProfileWrapper>
-        <div>
-          <PortfolioImage />
-          <div>
-            <h1>Adam Hopkins</h1>
-            <h2>Full stack web developer</h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Praesentium, laboriosam? Eaque eveniet placeat fugit pariatur
-              consequuntur modi nam, sint cum veritatis voluptatum, laudantium
-              repellat obcaecati eligendi. Illo alias voluptatum inventore.
-            </p>
-          </div>
-        </div>
+        <PortfolioImage />
+        <StyledCopyWrapper>
+          <h1>Adam Hopkins</h1>
+          <h2>Full stack web developer</h2>
+          <p>Making the web a much more awesome place</p>
+        </StyledCopyWrapper>
       </StyledProfileWrapper>
     </>
   )
