@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import { breakpoint } from '../../styles/ui/breakpoints'
 
-const StyledWrapper = styled.div`
+const StyledPortfolioWrapper = styled.div`
   max-width: 300px;
   max-height: 300px;
   border-radius: 1000px;
@@ -32,11 +32,11 @@ export const PortfolioImage: React.FC = () => {
   `)
 
   return (
-    <StyledWrapper>
+    <StyledPortfolioWrapper>
       <Img
         fluid={data.file.childImageSharp.fluid}
         alt='Photo of Adam Hopkins'
       />
-    </StyledWrapper>
+    </StyledPortfolioWrapper>
   )
 }
