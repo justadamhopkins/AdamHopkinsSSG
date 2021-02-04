@@ -18,6 +18,9 @@ export const GlobalUiStyles = createGlobalStyle`
     --smoothPurple: #673ab7;
     --smoothGrey: #b0a8b9;
     --smoothGreen: #00b397;
+    --font-size-large: 4rem;
+    --font-size-medium: 3rem;
+    --font-size-small: 2rem;
   }
   ${reset}
   *, *:before, *:after {
