@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img, { FixedObject } from 'gatsby-image'
+import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import { breakpoint } from '../../styles/ui/breakpoints'
 
