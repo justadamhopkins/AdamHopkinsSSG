@@ -1,8 +1,20 @@
 import React, { FC } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { PortfolioImage } from '../components/PortfolioImage/PortfolioImage'
 import { SiteHelmet } from '../components/SiteHelmet/SiteHelmet'
 import { breakpoint } from '../styles/ui/breakpoints'
+
+const gradient = keyframes`
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  `
 
 export const StyledProfileWrapper = styled.section`
   display: flex;
@@ -11,6 +23,19 @@ export const StyledProfileWrapper = styled.section`
   padding-top: 2rem;
   h1 {
     font-size: var(--font-size-medium);
+    animation: ${gradient} 15s ease infinite;
+    background-size: 400% 400%;
+    background-image: linear-gradient(
+      -45deg,
+      var(--secondaryBackground),
+      var(--background),
+      var(--smoothGreen),
+      var(--materialBlack)
+    );
+    display: inline-block;
+    transform: skew(-5deg);
+    color: #fff;
+    padding: 5px;
   }
   h2 {
     font-size: var(--font-size-small);
@@ -23,7 +48,6 @@ export const StyledProfileWrapper = styled.section`
     padding: 2rem;
     flex-flow: row nowrap;
     justify-content: center;
-
     h1 {
       font-size:  var(--font-size-large);
     }
