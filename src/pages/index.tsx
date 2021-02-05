@@ -4,6 +4,7 @@ import { PortfolioImage } from '../components/PortfolioImage/PortfolioImage'
 import { SiteHelmet } from '../components/SiteHelmet/SiteHelmet'
 import { breakpoint } from '../styles/ui/breakpoints'
 
+
 const gradient = keyframes`
     0% {
       background-position: 0% 50%;
