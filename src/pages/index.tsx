@@ -17,6 +17,7 @@ export const StyledProfileWrapper = styled.section`
   }
   p {
     font-size: var(--font-size-small);
+    font-family: 'FiraCodeLight';
   }
   ${breakpoint.md`
     padding: 2rem;
