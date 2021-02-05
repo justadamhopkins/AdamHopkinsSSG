@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import styled, { css } from 'styled-components'
 
 const StyledHamburger = styled.div<{ active: boolean }>`
-  z-index: 1;
+  z-index: 111111;
   span {
     width: 40px;
     height: 4px;
