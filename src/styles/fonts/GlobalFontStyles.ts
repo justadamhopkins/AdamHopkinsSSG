@@ -5,12 +5,14 @@ import LeagueSpartanBoldWoff2 from './LeagueSpartanBold.woff2' //@ts-ignore
 import LeagueSpartanBoldOtf from './LeagueSpartanBold.otf' //@ts-ignore
 import FiraCodeLightWoff from './FiraCode.woff' //@ts-ignore
 import FiraCodeLightWoff2 from './FiraCode.woff2' //@ts-ignore
+import FiraCodeLightOtf from './FiraCode.otf' //@ts-ignore
 export const GlobalFontStyles = createGlobalStyle`
     @font-face {
         font-family: 'FiraCodeLight';
         src: local('FiraCodeLight'), local('FiraCodeLight'),
         url(${FiraCodeLightWoff}) format('woff2'),
-        url(${FiraCodeLightWoff2}) format('woff');
+        url(${FiraCodeLightWoff2}) format('woff'),
+        url(${FiraCodeLightOtf}) format('otf');
         font-weight: normal;
         font-style: normal;
     }
