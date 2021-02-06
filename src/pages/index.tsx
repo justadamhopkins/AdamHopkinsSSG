@@ -1,37 +1,21 @@
 import React, { FC } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { PortfolioImage } from '../components/PortfolioImage/PortfolioImage'
 import { SiteHelmet } from '../components/SiteHelmet/SiteHelmet'
 import { breakpoint } from '../styles/ui/breakpoints'
+import { motion } from 'framer-motion'
 
-
-const gradient = keyframes`
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  `
-
-export const StyledProfileWrapper = styled.section`
+export const StyledProfileWrapper = styled(motion.section)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   padding-top: 2rem;
   h1 {
     font-size: var(--font-size-medium);
-    animation: ${gradient} 15s ease infinite;
-    background-size: 400% 400%;
+    background-size: 100% 200%;
     background-image: linear-gradient(
-      -45deg,
-      var(--secondaryBackground),
-      var(--background),
-      var(--smoothGreen),
-      var(--materialBlack)
+      var(--secondaryBackground) 50%,
+      var(--background) 50%
     );
     display: inline-block;
     transform: skew(-5deg);
@@ -58,7 +42,7 @@ export const StyledProfileWrapper = styled.section`
   `};
 `
 
-const StyledCopyWrapper = styled.div`
+const StyledDescriptionWrapper = styled(motion.div)`
   padding-top: 1.5rem;
   text-align: center;
   ${breakpoint.md`
@@ -67,17 +51,73 @@ const StyledCopyWrapper = styled.div`
   `}
 `
 
+const portfolioImageVariant = {
+  start: {
+    x: '-200%'
+  },
+  end: {
+    x: 0,
+    transition: {
+      duration: 1.2,
+      ease: 'easeIn',
+      damping: 300
+    }
+  }
+}
+
+const styledDescriptionVariant = {
+  start: {
+    y: '-200%'
+  },
+  end: {
+    y: 0,
+    transition: {
+      duration: 1.2,
+      ease: 'easeIn',
+      damping: 300,
+      delay: 1.5
+    }
+  }
+}
+
+const titleVariant = {
+  start: {
+    backgroundPosition: '0 100%'
+  },
+  end: {
+    backgroundPosition: '0% 0%',
+    transition: {
+      duration: 1,
+      ease: 'easeIn',
+      delay: 3
+    }
+  }
+}
+
 const HomePage: FC<{}> = () => {
   return (
     <>
       <SiteHelmet pageTitle='Portfolio home page' />
       <StyledProfileWrapper>
-        <PortfolioImage />
-        <StyledCopyWrapper>
-          <h1>Adam Hopkins</h1>
+        <motion.div
+          variants={portfolioImageVariant}
+          initial='start'
+          animate='end'
+          style={{ width: '350px' }}
+        >
+          <PortfolioImage />
+        </motion.div>
+        <StyledDescriptionWrapper
+          variants={styledDescriptionVariant}
+          initial='start'
+          animate='end'
+        >
+          <motion.h1 variants={titleVariant} initial='start' animate='end'>
+            Adam Hopkins
+          </motion.h1>
           <h2>Full stack web developer</h2>
           <p>Making the web a much more awesome place</p>
-        </StyledCopyWrapper>
+        </StyledDescriptionWrapper>
       </StyledProfileWrapper>
     </>
   )
