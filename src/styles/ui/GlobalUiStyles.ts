@@ -18,32 +18,37 @@ export const GlobalUiStyles = createGlobalStyle`
     --smoothPurple: #673ab7;
     --smoothGrey: #b0a8b9;
     --smoothGreen: #00b397;
-    --font-size-large: 4rem;
-    --font-size-medium: 3rem;
-    --font-size-small: 2rem;
+    --font-size-large: 5rem;
+    --font-size-medium: 4rem;
+    --font-size-small: 3rem;
+    --font-size-xtra-small: 2.5rem;
   }
   ${reset}
   *, *:before, *:after {
     box-sizing: inherit;
-  }
-  html, 
-  body, 
-  #___gatsby, 
-  .light, 
-  .dark {
-    height: 100%;
   }
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: '#1a202c';
+    font-size: 62.5%;
   }
   body {
-    font-size: 62.5%;
     line-height: 1.5;
     letter-spacing: 0;
     background-color: '#f7fafc';
+    font-size: 1.6rem;
+  }
+  html, 
+  body, 
+  #___gatsby, 
+  #gatsby-focus-wrapper,
+  .light, 
+  .dark {
+    height: 100%;
+    padding: 0;
+    margin: 0;
   }
   .light {
     --background: #c0c5d1;
