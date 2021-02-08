@@ -9,28 +9,34 @@ export const StyledProfileWrapper = styled(motion.section)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding-top: 2rem;
+  height: 100%;
   h1 {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-small);
     background-size: 100% 200%;
     background-image: linear-gradient(
       var(--secondaryBackground) 50%,
       var(--background) 50%
     );
+    text-decoration: underline;
+    padding-top: 15px;
     display: inline-block;
     transform: skew(-5deg);
     color: #fff;
     padding: 5px;
   }
   h2 {
-    font-size: var(--font-size-small);
+    padding-top: 15px;
+    font-size: var(--font-size-xtra-small);
   }
   p {
-    font-size: var(--font-size-small);
+    padding-top: 15px;
+    font-size: var(--font-size-xtra-small);
     font-family: 'FiraCodeLight';
   }
+  div:first-child {
+    padding-bottom: 2rem;
+  }
   ${breakpoint.md`
-    padding: 2rem;
     flex-flow: row nowrap;
     justify-content: center;
     h1 {
@@ -39,16 +45,18 @@ export const StyledProfileWrapper = styled(motion.section)`
     h2 {
       font-size: var(--font-size-medium);
     }
+    p {
+      font-size: var(--font-size-small);
+    }
+    div:first-child {
+    padding-bottom: 0;
+  }
   `};
 `
 
 const StyledDescriptionWrapper = styled(motion.div)`
-  padding-top: 1.5rem;
+  padding: 1.5rem;
   text-align: center;
-  ${breakpoint.md`
-    padding-top: 0;
-    padding-left: 2rem;
-  `}
 `
 
 const portfolioImageVariant = {
@@ -67,14 +75,13 @@ const portfolioImageVariant = {
 
 const styledDescriptionVariant = {
   start: {
-    y: '-200%'
+    opacity: 0
   },
   end: {
-    y: 0,
+    opacity: 1,
     transition: {
       duration: 1.2,
       ease: 'easeIn',
-      damping: 300,
       delay: 1.5
     }
   }
@@ -103,7 +110,6 @@ const HomePage: FC<{}> = () => {
           variants={portfolioImageVariant}
           initial='start'
           animate='end'
-          style={{ width: '350px' }}
         >
           <PortfolioImage />
         </motion.div>
