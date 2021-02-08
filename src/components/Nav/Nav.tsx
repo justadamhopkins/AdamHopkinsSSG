@@ -2,6 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
+import { breakpoint } from '../../styles/ui/breakpoints'
 
 const StyledNav = styled(motion.nav)`
   width: 100vw;
@@ -31,7 +32,7 @@ const StyledNav = styled(motion.nav)`
         display: block;
         letter-spacing: 2px;
         color: var(--white);
-        font-size: 2rem;
+        font-size: var(--font-size-small);
         padding: 5px;
         text-decoration: underline;
         transition: all 0.15s ease;
@@ -47,6 +48,9 @@ const StyledNav = styled(motion.nav)`
           color: var(--fontPrimary);
           background-position: 0 0;
         }
+        ${breakpoint.sm`
+         font-size: var(--font-size-medium);
+         `}
       }
     }
   }
