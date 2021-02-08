@@ -8,8 +8,11 @@ import { Footer } from '../Footer/Footer'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
-  min-height: calc(100vh - 75px);
+  height: calc(100% - 63px);
   padding: 2rem;
+  main {
+    height: 100%;
+  }
 `
 
 export const Layout: FC<{}> = ({ children }) => {
