@@ -103,18 +103,21 @@ export const pages = ['About', 'Work', 'Contact'] as const
 
 type Pages = typeof pages[number]
 
-const links: { path: string; name: Pages }[] = [
+const links: { path: string; name: Pages; isActive: boolean }[] = [
   {
     path: '/',
-    name: 'About'
+    name: 'About',
+    isActive: true
   },
   {
     path: '/work',
-    name: 'Work'
+    name: 'Work',
+    isActive: false
   },
   {
     path: '/contact',
-    name: 'Contact'
+    name: 'Contact',
+    isActive: false
   }
 ]
 
@@ -128,15 +131,17 @@ export const Nav: FC<Props> = ({ isNavOpen, toggleNav }) => {
     >
       <div>
         <motion.ul variants={ulVariants}>
-          {links.map(({ path, name }) => (
-            <motion.li
-              key={name}
-              variants={linkVariants}
-              onClick={() => toggleNav(false)}
-            >
-              <Link to={path}>{name}</Link>
-            </motion.li>
-          ))}
+          {links
+            .filter(({ isActive }) => isActive)
+            .map(({ path, name }) => (
+              <motion.li
+                key={name}
+                variants={linkVariants}
+                onClick={() => toggleNav(false)}
+              >
+                <Link to={path}>{name}</Link>
+              </motion.li>
+            ))}
         </motion.ul>
       </div>
     </StyledNav>
