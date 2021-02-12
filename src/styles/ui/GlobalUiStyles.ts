@@ -55,12 +55,14 @@ export const GlobalUiStyles = createGlobalStyle`
     --secondaryBackground: #673ab7;
     --thirdBackground: #b0a8b9;
     --fontPrimary: #000;
+    --fontPrimaryNav: #efefef;
   }
   .dark {
     --background: #282c35;
     --secondaryBackground: #e8b9d2;
     --thirdBackground: #464655;
     --fontPrimary: #fff;
+    --fontPrimaryNav: #464655;
   }
   h1,h2,h3,h4,p {
     font-family: 'LeagueSpartanBold';

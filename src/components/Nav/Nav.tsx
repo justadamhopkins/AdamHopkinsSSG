@@ -45,7 +45,7 @@ const StyledNav = styled(motion.nav)`
         );
         &:hover,
         &[aria-current='page'] {
-          color: var(--fontPrimary);
+          color: var(--fontPrimaryNav);
           background-position: 0 0;
         }
         ${breakpoint.sm`
