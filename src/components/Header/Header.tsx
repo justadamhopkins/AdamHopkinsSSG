@@ -1,5 +1,6 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components'
+import { breakpoint } from '../../styles/ui/breakpoints'
 import { Hamburger } from '../Hamburger/Hamburger'
 import { Nav } from '../Nav/Nav'
 import { SwitchToggle } from '../SwitchToggle/SwitchToggle'
@@ -9,6 +10,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   flex-direction: row;
   align-items: flex-start;
+  padding-bottom: 2rem;
+  ${breakpoint.md`
+    padding-bottom: 0;
+  `}
 `
 
 interface Props {
