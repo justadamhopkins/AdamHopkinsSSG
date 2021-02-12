@@ -106,7 +106,7 @@ const titleVariant = {
 const HomePage: FC<{}> = () => {
   return (
     <>
-      <SiteHelmet pageTitle='Portfolio home page' />
+      <SiteHelmet pageTitle='About' />
       <StyledProfileWrapper>
         <motion.div
           variants={portfolioImageVariant}
