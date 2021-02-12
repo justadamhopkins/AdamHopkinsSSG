@@ -18,18 +18,18 @@ export const StyledProfileWrapper = styled(motion.section)`
       var(--background) 50%
     );
     text-decoration: underline;
-    padding-top: 15px;
+    padding-top: 20px;
     display: inline-block;
     transform: skew(-5deg);
     color: #fff;
     padding: 5px;
   }
   h2 {
-    padding-top: 15px;
+    padding-top: 20px;
     font-size: var(--font-size-xtra-small);
   }
   p {
-    padding-top: 15px;
+    padding-top: 20px;
     font-size: var(--font-size-xtra-small);
     font-family: 'FiraCodeLight';
   }
@@ -61,10 +61,12 @@ const StyledDescriptionWrapper = styled(motion.div)`
 
 const portfolioImageVariant = {
   start: {
-    x: '-200%'
+    x: '-50%',
+    opacity: 0
   },
   end: {
     x: 0,
+    opacity: 1,
     transition: {
       duration: 1.2,
       ease: 'easeIn',
