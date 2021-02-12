@@ -5,14 +5,19 @@ import { Header } from '../Header/Header'
 import styled from 'styled-components'
 import { useThemeSwitcher } from '../../hooks/useThemeSwitcher'
 import { Footer } from '../Footer/Footer'
+import { breakpoint } from '../../styles/ui/breakpoints'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
-  height: calc(100% - 63px);
-  padding: 2rem;
+  height: 100%;
+  padding: 1rem;
   main {
     height: 100%;
   }
+  ${breakpoint.md`
+   height: calc(100% - 63px);
+    padding: 2rem;
+   `}
 `
 
 export const Layout: FC<{}> = ({ children }) => {
