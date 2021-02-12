@@ -5,14 +5,18 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { breakpoint } from '../../styles/ui/breakpoints'
 
 const StyledPortfolioWrapper = styled.div`
-  min-width: 300px;
-  max-height: 300px;
+  min-width: 250px;
+  max-height: 250px;
   border-radius: 1000px;
   overflow: hidden;
   vertical-align: middle;
   border: 7px solid var(--secondaryBackground);
   width: 100%;
   ${breakpoint.sm`
+      min-width: 300px;
+      max-height: 300px;
+  `};
+  ${breakpoint.md`
       min-width: 350px;
       max-height: 350px;
   `};
