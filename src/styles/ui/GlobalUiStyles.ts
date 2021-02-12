@@ -54,16 +54,22 @@ export const GlobalUiStyles = createGlobalStyle`
     --background: #c0c5d1;
     --secondaryBackground: #673ab7;
     --thirdBackground: #b0a8b9;
-    --fontPrimary: #efefef;
+    --fontPrimary: #000;
   }
   .dark {
     --background: #282c35;
     --secondaryBackground: #e8b9d2;
     --thirdBackground: #464655;
-    --fontPrimary: #464655;
+    --fontPrimary: #fff;
   }
   h1,h2,h3,h4,p {
     font-family: 'LeagueSpartanBold';
     letter-spacing: 1px;
+  }
+  h1 {
+    color: var(--white);
+  }
+  h2, h3, p {
+    color: var(--fontPrimary);
   }
 `
