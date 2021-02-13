@@ -4,6 +4,7 @@ import { PortfolioImage } from '../components/PortfolioImage/PortfolioImage'
 import { SiteHelmet } from '../components/SiteHelmet/SiteHelmet'
 import { breakpoint } from '../styles/ui/breakpoints'
 import { motion } from 'framer-motion'
+import { Icon, IconName } from '../components/icons/Icon'
 
 export const StyledProfileWrapper = styled(motion.section)`
   display: flex;
@@ -52,6 +53,24 @@ export const StyledProfileWrapper = styled(motion.section)`
     padding-bottom: 0;
   }
   `};
+`
+
+const StyledIconWrapper = styled.div`
+  padding-top: 20px;
+  > div {
+    display: inline-block;
+    :first-child {
+      padding-right: 15px;
+    }
+    :last-child {
+      padding-left: 15px;
+    }
+    a {
+      display: block;
+      cursor: pointer;
+      outline: none;
+    }
+  }
 `
 
 const StyledDescriptionWrapper = styled(motion.div)`
@@ -103,6 +122,11 @@ const titleVariant = {
   }
 }
 
+const links = {
+  github: 'www.github.com/justadamhopkins',
+  linkedIn: 'www.linkedin.com/in/adamhopkins1989'
+}
+
 const HomePage: FC<{}> = () => {
   return (
     <>
@@ -125,6 +149,22 @@ const HomePage: FC<{}> = () => {
           </motion.h1>
           <h2>Full stack web developer</h2>
           <p>Making the web a much more awesome place</p>
+          <StyledIconWrapper>
+            {Object.keys(links).map((iconName: IconName) => (
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <a
+                  href={`//${links[iconName]}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <Icon iconName={iconName} width={50} height={50} />
+                </a>
+              </motion.div>
+            ))}
+          </StyledIconWrapper>
         </StyledDescriptionWrapper>
       </StyledProfileWrapper>
     </>
