@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { GlobalFontStyles } from '../../styles/fonts/GlobalFontStyles'
 import { GlobalUiStyles } from '../../styles/ui/GlobalUiStyles'
 import { Header } from '../Header/Header'
@@ -9,7 +9,7 @@ import { breakpoint } from '../../styles/ui/breakpoints'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
-  height: 100%;
+  height: auto;
   padding: 1rem;
   main {
     height: 100%;
@@ -22,6 +22,12 @@ const StyledSiteWrapper = styled.div`
 
 export const Layout: FC<{}> = ({ children }) => {
   const { toggleTheme, theme } = useThemeSwitcher()
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem('theme')) !== theme) {
+      return toggleTheme()
+    }
+  }, [])
 
   return (
     <div className={theme}>
