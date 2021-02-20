@@ -9,7 +9,7 @@ import { breakpoint } from '../../styles/ui/breakpoints'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
-  height: auto;
+  height: 100%;
   padding: 1rem;
   main {
     height: 100%;
