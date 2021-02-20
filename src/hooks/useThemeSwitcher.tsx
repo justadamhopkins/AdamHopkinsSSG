@@ -5,6 +5,8 @@ interface Themes {
   dark: 'dark'
 }
 
+type ThemeKeys = keyof Themes
+
 export const useThemeSwitcher = () => {
   const themes: Themes = {
     light: 'light',
@@ -13,7 +15,7 @@ export const useThemeSwitcher = () => {
 
   const isWindowAvailable = typeof window !== 'undefined'
 
-  const decideTheme = () => {
+  const decideTheme = (): ThemeKeys => {
     if (isWindowAvailable) {
       const val = localStorage.getItem('theme')
       return val ? JSON.parse(val) : themes.light
@@ -21,7 +23,7 @@ export const useThemeSwitcher = () => {
     return themes.light
   }
 
-  const [theme, setTheme] = useState<'light' | 'dark'>(decideTheme())
+  const [theme, setTheme] = useState<ThemeKeys>(decideTheme())
 
   useEffect(() => {
     if (isWindowAvailable) {
@@ -33,8 +35,13 @@ export const useThemeSwitcher = () => {
     setTheme(theme === themes.light ? themes.dark : themes.light)
   }
 
+  const forceTheme = (theme: ThemeKeys) => {
+    setTheme(theme)
+  }
+
   return {
     toggleTheme,
-    theme
+    theme,
+    forceTheme
   }
 }

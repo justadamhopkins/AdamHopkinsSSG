@@ -21,11 +21,12 @@ const StyledSiteWrapper = styled.div`
 `
 
 export const Layout: FC<{}> = ({ children }) => {
-  const { toggleTheme, theme } = useThemeSwitcher()
+  const { toggleTheme, theme, forceTheme } = useThemeSwitcher()
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem('theme')) !== theme) {
-      return toggleTheme()
+    const savedTheme = JSON.parse(localStorage.getItem('theme'))
+    if (savedTheme !== theme) {
+      return forceTheme(savedTheme)
     }
   }, [])
 
