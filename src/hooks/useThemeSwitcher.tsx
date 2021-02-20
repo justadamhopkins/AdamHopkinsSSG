@@ -13,13 +13,15 @@ export const useThemeSwitcher = () => {
 
   const isWindowAvailable = typeof window !== 'undefined'
 
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  const decideTheme = () => {
     if (isWindowAvailable) {
       const val = localStorage.getItem('theme')
       return val ? JSON.parse(val) : themes.light
     }
     return themes.light
-  })
+  }
+
+  const [theme, setTheme] = useState<'light' | 'dark'>(decideTheme())
 
   useEffect(() => {
     if (isWindowAvailable) {
