@@ -39,14 +39,8 @@ export const useThemeSwitcher = () => {
     setTheme(theme === themes.light ? themes.dark : themes.light)
   }
 
-  const forceTheme = (theme: ThemeKeys) => {
-    console.log({ theme }, 'force')
-    setTheme(theme)
-  }
-
   return {
     toggleTheme,
-    theme,
-    forceTheme
+    theme
   }
 }
