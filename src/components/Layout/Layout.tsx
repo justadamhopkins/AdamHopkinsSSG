@@ -22,10 +22,10 @@ const StyledSiteWrapper = styled.div`
 
 export const Layout: FC<{}> = ({ children }) => {
   const { toggleTheme, theme, forceTheme } = useThemeSwitcher()
+  console.log('🚀 ~ file: Layout.tsx ~ line 25 ~ theme', { theme })
 
   useEffect(() => {
     const savedTheme = JSON.parse(localStorage.getItem('theme'))
-
     if (savedTheme === theme) {
       return forceTheme(savedTheme)
     }

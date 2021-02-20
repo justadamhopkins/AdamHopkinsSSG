@@ -18,6 +18,10 @@ export const useThemeSwitcher = () => {
   const decideTheme = (): ThemeKeys => {
     if (isWindowAvailable) {
       const val = localStorage.getItem('theme')
+      console.log(
+        '🚀 ~ file: useThemeSwitcher.tsx ~ line 21 ~ decideTheme ~ val',
+        { val }
+      )
       return val ? JSON.parse(val) : themes.light
     }
     return themes.light
@@ -36,6 +40,7 @@ export const useThemeSwitcher = () => {
   }
 
   const forceTheme = (theme: ThemeKeys) => {
+    console.log({ theme }, 'force')
     setTheme(theme)
   }
 
