@@ -26,6 +26,8 @@ export const Layout: FC<{}> = ({ children }) => {
   useEffect(() => {
     const savedTheme = JSON.parse(localStorage.getItem('theme'))
     if (savedTheme !== theme) {
+      console.log({ savedTheme })
+      console.log({ theme })
       return forceTheme(savedTheme)
     }
   }, [])
