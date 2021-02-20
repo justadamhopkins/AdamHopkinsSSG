@@ -154,6 +154,7 @@ const HomePage: FC<{}> = () => {
               <motion.div
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 transition={{ duration: 0.5 }}
+                key={iconName}
               >
                 <a
                   href={`//${links[iconName]}`}
