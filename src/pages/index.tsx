@@ -5,26 +5,13 @@ import { SiteHelmet } from '../components/SiteHelmet/SiteHelmet'
 import { breakpoint } from '../styles/ui/breakpoints'
 import { motion } from 'framer-motion'
 import { Icon, IconName } from '../components/icons/Icon'
+import { Title } from '../components/Title/Title'
 
 export const StyledProfileWrapper = styled(motion.section)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   height: 100%;
-  h1 {
-    font-size: var(--font-size-small);
-    background-size: 100% 200%;
-    background-image: linear-gradient(
-      var(--secondaryBackground) 50%,
-      var(--background) 50%
-    );
-    text-decoration: underline;
-    padding-top: 20px;
-    display: inline-block;
-    transform: skew(-5deg);
-    color: #fff;
-    padding: 5px;
-  }
   h2 {
     padding-top: 20px;
     font-size: var(--font-size-xtra-small);
@@ -40,9 +27,6 @@ export const StyledProfileWrapper = styled(motion.section)`
   ${breakpoint.md`
     flex-flow: row nowrap;
     justify-content: center;
-    h1 {
-      font-size:  var(--font-size-large);
-    }
     h2 {
       font-size: var(--font-size-medium);
     }
@@ -108,20 +92,6 @@ const styledDescriptionVariant = {
   }
 }
 
-const titleVariant = {
-  start: {
-    backgroundPosition: '0 100%'
-  },
-  end: {
-    backgroundPosition: '0% 0%',
-    transition: {
-      duration: 1,
-      ease: 'easeIn',
-      delay: 3
-    }
-  }
-}
-
 const links = {
   github: 'www.github.com/justadamhopkins',
   linkedIn: 'www.linkedin.com/in/adamhopkins1989'
@@ -144,9 +114,7 @@ const HomePage: FC<{}> = () => {
           initial='start'
           animate='end'
         >
-          <motion.h1 variants={titleVariant} initial='start' animate='end'>
-            Adam Hopkins
-          </motion.h1>
+          <Title>Adam Hopkins</Title>
           <h2>Full stack web developer</h2>
           <p>Making the web a much more awesome place</p>
           <StyledIconWrapper>
