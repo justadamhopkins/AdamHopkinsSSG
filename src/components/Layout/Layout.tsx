@@ -10,7 +10,6 @@ import { useIsClient } from '../../hooks/useClient'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
-  height: 100%;
   padding: 1rem;
   ${breakpoint.md`
     height: calc(100% - 63px);
