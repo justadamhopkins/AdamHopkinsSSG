@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { GlobalFontStyles } from '../../styles/fonts/GlobalFontStyles'
 import { GlobalUiStyles } from '../../styles/ui/GlobalUiStyles'
 import { Header } from '../Header/Header'
@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { useThemeSwitcher } from '../../hooks/useThemeSwitcher'
 import { Footer } from '../Footer/Footer'
 import { breakpoint } from '../../styles/ui/breakpoints'
+import { useIsClient } from '../../hooks/useClient'
 
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
@@ -22,10 +23,13 @@ const StyledSiteWrapper = styled.div`
 
 export const Layout: FC<{}> = ({ children }) => {
   const { toggleTheme, theme } = useThemeSwitcher()
-  console.log('🚀 ~ file: Layout.tsx ~ line 25 ~ theme', { theme })
+
+  const { isClient, key } = useIsClient()
+
+  if (!isClient) return null
 
   return (
-    <div className={theme}>
+    <div className={theme} key={key}>
       <GlobalFontStyles />
       <GlobalUiStyles />
       <StyledSiteWrapper>
