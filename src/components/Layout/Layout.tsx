@@ -12,12 +12,12 @@ const StyledSiteWrapper = styled.div`
   background-color: var(--background);
   height: 100%;
   padding: 1rem;
-  main {
-    height: 100%;
-  }
   ${breakpoint.md`
-   height: calc(100% - 63px);
+    height: calc(100% - 63px);
     padding: 2rem;
+    main {
+        height: 100%;
+      }
    `}
 `
 
