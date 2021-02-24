@@ -58,7 +58,7 @@ const StyledIconWrapper = styled.div`
 `
 
 const StyledDescriptionWrapper = styled(motion.div)`
-  padding: 1.5rem;
+  padding: 3rem;
   text-align: center;
 `
 
