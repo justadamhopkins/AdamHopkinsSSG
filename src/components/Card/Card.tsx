@@ -1,18 +1,19 @@
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
+import { ModalState } from '../../pages/work'
 
 const StyledCardContentWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
   display: block;
-  pointer-events: none;
+  cursor: pointer;
   > div {
     pointer-events: auto;
     position: relative;
     border-radius: 20px;
-    background: #1c1c1e;
+    background: #fff;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -44,40 +45,42 @@ const StyledCardList = styled(motion.ul)`
   }
 `
 
-const Card: React.FC = () => {
+interface Props {
+  title: string
+  setModalState: any
+}
+
+const Card: React.FC<Props> = ({ title, setModalState }) => {
   return (
-    <StyledCardContentWrapper>
-      <Content />
+    <StyledCardContentWrapper onClick={setModalState}>
+      <div>{title}</div>
     </StyledCardContentWrapper>
   )
 }
 
-const Content = () => {
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <div>dog</div>
-      <div>dog</div>
-      <div>dog</div>
-    </motion.div>
-  )
+interface CardProps {
+  setModalState: Dispatch<SetStateAction<ModalState>>
 }
 
-export const CardList = () => {
-  const [isOpen, setIsOpen] = useState(false)
+export const CardList: FC<CardProps> = ({ setModalState }) => {
+  const portfolioHistory = [
+    { title: 'job1', id: 'job1' },
+    { title: 'job2', id: 'job2' },
+    { title: 'job3', id: 'job3' },
+    { title: 'job4', id: 'job4' }
+  ]
 
-  const toggleOpen = () => setIsOpen(!isOpen)
   return (
     <AnimateSharedLayout>
       <StyledCardList layout>
-        <motion.li layout onClick={toggleOpen}>
-          <AnimatePresence>{isOpen && <Content />}</AnimatePresence>
-          <Card />
-        </motion.li>
+        {portfolioHistory.map(({ title, id }) => (
+          <motion.li key={title}>
+            <Card
+              title={title}
+              setModalState={() => setModalState({ isModalOpen: true, id })}
+            />
+          </motion.li>
+        ))}
       </StyledCardList>
     </AnimateSharedLayout>
   )
