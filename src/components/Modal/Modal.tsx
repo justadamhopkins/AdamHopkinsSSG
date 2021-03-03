@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
-
 import { useModalConfig } from '../../contexts/ModalContext'
 
 const Overlay = styled(motion.div)`
