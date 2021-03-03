@@ -1,14 +1,14 @@
 import React, { createContext, FC, useContext, useState } from 'react'
 import { Modal } from '../components/Modal/Modal'
 
-interface ModalContextInitialState {
+export interface ModalContextInitialState {
   closeModal(): void
   triggerModal(content: string): void
   modalContent: string | null
   showModal: boolean
 }
 
-const ModalContext = createContext<ModalContextInitialState>({
+export const ModalContext = createContext<ModalContextInitialState>({
   closeModal: () => {},
   triggerModal: (content: string) => content,
   modalContent: null,
