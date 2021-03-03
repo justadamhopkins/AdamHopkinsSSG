@@ -1,7 +1,6 @@
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
-import { ModalState } from '../../pages/work'
 
 const StyledCardContentWrapper = styled.div`
   width: 100%;
@@ -47,38 +46,29 @@ const StyledCardList = styled(motion.ul)`
 
 interface Props {
   title: string
-  setModalState: any
+  triggerModal: any
 }
 
-const Card: React.FC<Props> = ({ title, setModalState }) => {
+const Card: React.FC<Props> = ({ title, triggerModal }) => {
   return (
-    <StyledCardContentWrapper onClick={setModalState}>
+    <StyledCardContentWrapper onClick={triggerModal}>
       <div>{title}</div>
     </StyledCardContentWrapper>
   )
 }
 
 interface CardProps {
-  setModalState: Dispatch<SetStateAction<ModalState>>
+  triggerModal(content: string): void
+  portfolioHistory: { title: string; id: string; content: string }[]
 }
 
-export const CardList: FC<CardProps> = ({ setModalState }) => {
-  const portfolioHistory = [
-    { title: 'job1', id: 'job1' },
-    { title: 'job2', id: 'job2' },
-    { title: 'job3', id: 'job3' },
-    { title: 'job4', id: 'job4' }
-  ]
-
+export const CardList: FC<CardProps> = ({ portfolioHistory, triggerModal }) => {
   return (
     <AnimateSharedLayout>
       <StyledCardList layout>
-        {portfolioHistory.map(({ title, id }) => (
-          <motion.li key={title}>
-            <Card
-              title={title}
-              setModalState={() => setModalState({ isModalOpen: true, id })}
-            />
+        {portfolioHistory.map(({ title, id, content }) => (
+          <motion.li key={id}>
+            <Card title={title} triggerModal={() => triggerModal(content)} />
           </motion.li>
         ))}
       </StyledCardList>
