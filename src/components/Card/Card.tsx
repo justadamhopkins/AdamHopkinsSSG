@@ -1,6 +1,7 @@
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import { motion } from 'framer-motion'
+import React, { FC } from 'react'
 import styled from 'styled-components'
+import { breakpoint } from '../../styles/ui/breakpoints'
 
 const StyledCardContentWrapper = styled.div`
   width: 100%;
@@ -26,21 +27,28 @@ const StyledCardList = styled(motion.ul)`
   align-content: flex-start;
   li {
     position: relative;
-    padding: 25px;
     height: 350px;
-    flex: 0 0 40%;
-    max-width: 40%;
-    &:nth-child(4n + 1),
-    &:nth-child(4n + 4) {
-      flex: 0 0 60%;
-      max-width: 60%;
+    flex: 1 0 100%;
+    max-width: 100%;
+    padding: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    ${breakpoint.md`
+      padding: 25px;
+      max-width: 40%;
+      flex: 0 0 40%;
+      &:nth-child(4n + 1),
+      &:nth-child(4n + 4) {
+        flex: 0 0 60%;
+        max-width: 60%;
     }
-    &:nth-child(odd) {
-      padding-left: 0;
+      &:nth-child(odd) {
+        padding-left: 0;
     }
-    &:nth-child(even) {
-      padding-right: 0;
+      &:nth-child(even) {
+        padding-right: 0;
     }
+    `}
   }
 `
 
@@ -64,14 +72,12 @@ interface CardProps {
 
 export const CardList: FC<CardProps> = ({ portfolioHistory, triggerModal }) => {
   return (
-    <AnimateSharedLayout>
-      <StyledCardList layout>
-        {portfolioHistory.map(({ title, id, content }) => (
-          <motion.li key={id}>
-            <Card title={title} triggerModal={() => triggerModal(content)} />
-          </motion.li>
-        ))}
-      </StyledCardList>
-    </AnimateSharedLayout>
+    <StyledCardList layout>
+      {portfolioHistory.map(({ title, id, content }) => (
+        <motion.li key={id}>
+          <Card title={title} triggerModal={() => triggerModal(content)} />
+        </motion.li>
+      ))}
+    </StyledCardList>
   )
 }
