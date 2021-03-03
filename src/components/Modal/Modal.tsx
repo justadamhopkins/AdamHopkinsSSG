@@ -1,7 +1,8 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ModalState } from '../../pages/work'
+
+import { useModalConfig } from '../../contexts/ModalContext'
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -10,6 +11,7 @@ const Overlay = styled(motion.div)`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 `
 const ModalContainer = styled(motion.div)`
   width: 50%;
@@ -42,19 +44,12 @@ const containerVariant = {
   exit: { top: '-50%' }
 }
 
-interface Props {
-  setModalState: Dispatch<SetStateAction<ModalState>>
-  modalState: ModalState
-}
+export const Modal: FC = () => {
+  const { closeModal, showModal, modalContent } = useModalConfig()
 
-export const Modal: FC<Props> = ({
-  setModalState,
-  children,
-  modalState: { isModalOpen }
-}) => {
   return (
     <AnimatePresence>
-      {isModalOpen && (
+      {showModal && (
         <Overlay
           initial={'initial'}
           animate={'isOpen'}
@@ -63,7 +58,7 @@ export const Modal: FC<Props> = ({
         >
           <ModalContainer variants={containerVariant}>
             <CloseButton
-              onClick={() => setModalState({ isModalOpen: false, id: null })}
+              onClick={closeModal}
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 20.39 20.39'
             >
@@ -91,7 +86,7 @@ export const Modal: FC<Props> = ({
                 strokeWidth='2'
               />
             </CloseButton>
-            {children}
+            {modalContent}
           </ModalContainer>
         </Overlay>
       )}
