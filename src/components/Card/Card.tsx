@@ -3,24 +3,6 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoint } from '../../styles/ui/breakpoints'
 
-const StyledCardContentWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: block;
-  cursor: pointer;
-  > div {
-    pointer-events: auto;
-    position: relative;
-    border-radius: 20px;
-    background: #fff;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-  }
-`
-
 const StyledCardList = styled(motion.ul)`
   display: flex;
   flex-wrap: wrap;
@@ -52,6 +34,43 @@ const StyledCardList = styled(motion.ul)`
   }
 `
 
+const StyledCardContentWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  > div {
+    pointer-events: auto;
+    position: relative;
+    border-radius: 20px;
+    background: #fff;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+`
+
+const StyledTitle = styled.div`
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  h2 {
+    font-size: 2.5rem;
+    color: black;
+  }
+`
+const StyledImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 350px;
+  width: 100vw;
+  background-color: red;
+`
+
 interface Props {
   title: string
   triggerModal: any
@@ -60,7 +79,12 @@ interface Props {
 const Card: React.FC<Props> = ({ title, triggerModal }) => {
   return (
     <StyledCardContentWrapper onClick={triggerModal}>
-      <div>{title}</div>
+      <div>
+        <StyledImage>image</StyledImage>
+        <StyledTitle>
+          <h2>{title}</h2>
+        </StyledTitle>
+      </div>
     </StyledCardContentWrapper>
   )
 }
