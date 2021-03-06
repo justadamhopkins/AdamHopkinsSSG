@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import React, { FC } from 'react'
 import styled from 'styled-components'
 import { breakpoint } from '../../styles/ui/breakpoints'
+import Img from 'gatsby-image'
 
 const StyledCardList = styled(motion.ul)`
   display: flex;
@@ -43,47 +44,45 @@ const StyledCardContentWrapper = styled.div`
   > div {
     pointer-events: auto;
     position: relative;
-    border-radius: 20px;
     background: #fff;
     overflow: hidden;
     width: 100%;
     height: 100%;
     margin: 0 auto;
-  }
-`
+    h2 {
+      font-size: 2.5rem;
+      color: #fff;
 
-const StyledTitle = styled.div`
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  h2 {
-    font-size: 2.5rem;
-    color: black;
+      background-size: 100% 200%;
+      background-image: linear-gradient(
+        var(--secondaryBackground) 50%,
+        var(--background) 50%
+      );
+      padding: 5px;
+    }
   }
-`
-const StyledImage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  height: 350px;
-  width: 100vw;
-  background-color: red;
 `
 
 interface Props {
   title: string
   triggerModal: any
+  image: any
 }
 
-const Card: React.FC<Props> = ({ title, triggerModal }) => {
+const Card: React.FC<Props> = ({ title, triggerModal, image }) => {
+  console.log(image)
   return (
     <StyledCardContentWrapper onClick={triggerModal}>
       <div>
-        <StyledImage>image</StyledImage>
-        <StyledTitle>
-          <h2>{title}</h2>
-        </StyledTitle>
+        <h2>{title}</h2>
+        <Img
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
+          fluid={image}
+          alt={title}
+        />
       </div>
     </StyledCardContentWrapper>
   )
@@ -91,15 +90,19 @@ const Card: React.FC<Props> = ({ title, triggerModal }) => {
 
 interface CardProps {
   triggerModal(content: string): void
-  portfolioHistory: { title: string; id: string; content: string }[]
+  portfolioHistory: { title: string; id: string; content: string; fluid: any }[]
 }
 
 export const CardList: FC<CardProps> = ({ portfolioHistory, triggerModal }) => {
   return (
     <StyledCardList layout>
-      {portfolioHistory.map(({ title, id, content }) => (
+      {portfolioHistory.map(({ title, id, content, fluid }) => (
         <motion.li key={id}>
-          <Card title={title} triggerModal={() => triggerModal(content)} />
+          <Card
+            title={title}
+            image={fluid}
+            triggerModal={() => triggerModal(content)}
+          />
         </motion.li>
       ))}
     </StyledCardList>
