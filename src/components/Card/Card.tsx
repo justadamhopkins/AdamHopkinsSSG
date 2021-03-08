@@ -7,36 +7,16 @@ import Img from 'gatsby-image'
 const StyledCardList = styled(motion.ul)`
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
+  justify-content: center;
+  gap: 10px;
   li {
     position: relative;
-    height: 350px;
-    flex: 1 0 100%;
-    max-width: 100%;
-    padding: 10px;
-    padding-left: 0;
-    padding-right: 0;
-    ${breakpoint.md`
-      padding: 25px;
-      max-width: 40%;
-      flex: 0 0 40%;
-      &:nth-child(4n + 1),
-      &:nth-child(4n + 4) {
-        flex: 0 0 60%;
-        max-width: 60%;
-    }
-      &:nth-child(odd) {
-        padding-left: 0;
-    }
-      &:nth-child(even) {
-        padding-right: 0;
-    }
-    `}
+    height: 260px;
+    width: 290px;
   }
 `
 
 const StyledCardContentWrapper = styled.div`
-  width: 100%;
   height: 100%;
   position: relative;
   display: block;
@@ -46,20 +26,26 @@ const StyledCardContentWrapper = styled.div`
     position: relative;
     background: #fff;
     overflow: hidden;
-    width: 100%;
     height: 100%;
-    margin: 0 auto;
-    h2 {
-      font-size: 2.5rem;
-      color: #fff;
+    border-radius: 10px;
+  }
+`
 
-      background-size: 100% 200%;
-      background-image: linear-gradient(
-        var(--secondaryBackground) 50%,
-        var(--background) 50%
-      );
-      padding: 5px;
-    }
+const StyledTitleWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--secondaryBackground);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    font-size: 1.8rem;
+    color: #fff;
   }
 `
 
@@ -74,15 +60,10 @@ const Card: React.FC<Props> = ({ title, triggerModal, image }) => {
   return (
     <StyledCardContentWrapper onClick={triggerModal}>
       <div>
-        <h2>{title}</h2>
-        <Img
-          style={{
-            width: '100%',
-            height: 'auto'
-          }}
-          fluid={image}
-          alt={title}
-        />
+        <StyledTitleWrapper>
+          <h2>{title}</h2>
+        </StyledTitleWrapper>
+        <Img fixed={image} alt={title} />
       </div>
     </StyledCardContentWrapper>
   )
@@ -90,17 +71,17 @@ const Card: React.FC<Props> = ({ title, triggerModal, image }) => {
 
 interface CardProps {
   triggerModal(content: string): void
-  portfolioHistory: { title: string; id: string; content: string; fluid: any }[]
+  portfolioHistory: { title: string; id: string; content: string; fixed: any }[]
 }
 
 export const CardList: FC<CardProps> = ({ portfolioHistory, triggerModal }) => {
   return (
     <StyledCardList layout>
-      {portfolioHistory.map(({ title, id, content, fluid }) => (
+      {portfolioHistory.map(({ title, id, content, fixed }) => (
         <motion.li key={id}>
           <Card
             title={title}
-            image={fluid}
+            image={fixed}
             triggerModal={() => triggerModal(content)}
           />
         </motion.li>
