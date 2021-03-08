@@ -52,8 +52,8 @@ export const query = graphql`
   query PortfolioImageQuery {
     allImageSharp {
       nodes {
-        fluid(maxHeight: 350) {
-          ...GatsbyImageSharpFluid
+        fixed(height: 260, width: 290) {
+          ...GatsbyImageSharpFixed
           originalName
         }
       }
