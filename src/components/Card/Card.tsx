@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { breakpoint } from '../../styles/ui/breakpoints'
 import Img from 'gatsby-image'
 
 const StyledCardList = styled(motion.ul)`
@@ -9,6 +8,7 @@ const StyledCardList = styled(motion.ul)`
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  padding-bottom: 3rem;
   li {
     position: relative;
     height: 260px;
