@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useModalConfig } from '../../contexts/ModalContext'
+import { breakpoint } from '../../styles/ui/breakpoints'
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -13,14 +14,29 @@ const Overlay = styled(motion.div)`
   z-index: 2;
 `
 const ModalContainer = styled(motion.div)`
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 500px;
   background-color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  ${breakpoint.sm`
+    width: 75%;
+    height: 300px;
+  `}
+  ${breakpoint.md`
+    width: 50%;
+  `}
+  p {
+    font-size: 1.8rem;
+  }
 `
 const CloseButton = styled.svg`
   width: 20px;
@@ -85,7 +101,7 @@ export const Modal: FC = () => {
                 strokeWidth='2'
               />
             </CloseButton>
-            {modalContent}
+            <p>{modalContent}</p>
           </ModalContainer>
         </Overlay>
       )}
