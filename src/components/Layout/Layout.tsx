@@ -11,13 +11,9 @@ import { useIsClient } from '../../hooks/useClient'
 const StyledSiteWrapper = styled.div`
   background-color: var(--background);
   padding: 1rem;
-  ${breakpoint.md`
-    height: calc(100% - 63px);
-    padding: 2rem;
-    main {
-        height: 100%;
-      }
-   `}
+  ${breakpoint.lg`
+    height: calc(100vh - 63px);
+   `};
 `
 
 export const Layout: FC<{}> = ({ children }) => {
