@@ -56,7 +56,6 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ title, triggerModal, image }) => {
-  console.log(image)
   return (
     <StyledCardContentWrapper onClick={triggerModal}>
       <div>
