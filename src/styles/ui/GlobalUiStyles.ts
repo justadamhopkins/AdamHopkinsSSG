@@ -40,15 +40,10 @@ export const GlobalUiStyles = createGlobalStyle`
     background-color: '#f7fafc';
     font-size: 1.6rem;
   }
-  html, 
-  body, 
-  #___gatsby, 
-  #gatsby-focus-wrapper,
-  .light, 
-  .dark {
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  html, body {
+    margin:0;
+    padding:0;
+    height:100%;
   }
   .light {
     --background: #c0c5d1;
