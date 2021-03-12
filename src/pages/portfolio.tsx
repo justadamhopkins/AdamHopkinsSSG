@@ -28,6 +28,12 @@ const portfolioHistory = [
       'I developed a new help application for The Times. This was built using React, Typescript, React testing library and Cypress. I also developed a serverless lambda that integrated with a service called Algolia for fetching and storing of help articles.'
   },
   {
+    title: 'www.thetimes.co.uk',
+    id: 'times',
+    content:
+      'Help maintain and build new features for the core node application for The Times.'
+  },
+  {
     title: 'Topshop',
     id: 'topshop',
     content:
