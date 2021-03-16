@@ -15,8 +15,8 @@ const Overlay = styled(motion.div)`
 `
 const ModalContainer = styled(motion.div)`
   width: 100%;
-  height: 500px;
-  background-color: white;
+  /* height: 500px; */
+  background-color: #efefef;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -26,16 +26,15 @@ const ModalContainer = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  ${breakpoint.sm`
-    width: 75%;
-    height: 300px;
-  `}
+  padding: 30px;
+  font-size: 1.6rem;
+  height: 300px;
   ${breakpoint.md`
     width: 50%;
   `}
   p {
     font-size: 1.8rem;
+    font-family: 'FiraCodeLight';
   }
 `
 const CloseButton = styled.svg`
