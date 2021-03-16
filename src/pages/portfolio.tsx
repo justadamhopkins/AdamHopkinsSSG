@@ -11,7 +11,7 @@ import { mergePortfolioData } from '../utils/mergePortfolioData'
 const portfolioHistory = [
   {
     title: 'Times Puzzles',
-    id: 'timesPuzzles',
+    id: 'puzzles',
     content:
       'Mobile app developed using React Native and Typescript for The Times newspaper. Launched to IOS app store and Google Play store.'
   },
