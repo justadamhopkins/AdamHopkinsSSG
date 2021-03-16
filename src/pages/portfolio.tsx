@@ -13,31 +13,31 @@ const portfolioHistory = [
     title: 'Times Puzzles',
     id: 'timesPuzzles',
     content:
-      'I developed a React Native Typescript app for The Times. This was launched to both the app and play store in January 2021.'
+      'Mobile app developed using React Native and Typescript for The Times newspaper. Launched to IOS app store and Google Play store.'
   },
   {
     title: 'Times Cancellation',
     id: 'cancellation',
     content:
-      'I developed an online subscription cancellation journey for The Times. This was built using React, Apollo client, Typescript, React testing library and Cypress. A GraphQL api was also developed using Apollo server to integrate and consume a rest api.'
+      'Online subscription cancellation journey developed for The Times newspaper. Built using React, Apollo client, Typescript, React testing library and Cypress. A GraphQL api was also developed using Apollo server to integrate and consume a rest api.'
   },
   {
     title: 'Times Help',
     id: 'help',
     content:
-      'I developed a new help application for The Times. This was built using React, Typescript, React testing library and Cypress. I also developed a serverless lambda that integrated with a service called Algolia for fetching and storing of help articles.'
+      'Help and FAQ application developed for The Times newspaper. Built using React, Typescript, React testing library and Cypress. This included a serverless lambda that integrated with a service called Algolia for fetching and storing articles.'
   },
   {
     title: 'www.thetimes.co.uk',
     id: 'times',
     content:
-      'Help maintain and build new features for the core node application for The Times.'
+      'Helped maintain and build new features for the core node application for The Times newspaper.'
   },
   {
     title: 'Topshop',
     id: 'topshop',
     content:
-      'I worked on a re-platform for Arcadia group. I redeveloped their 8 brand e-commerce websites in React, Node, Enzyme and Cypress.'
+      'Front end re-platform for Arcadia group including redevelopment of their 8 brand e-commerce websites in React, Node, Enzyme and Cypress.'
   }
 ]
 
