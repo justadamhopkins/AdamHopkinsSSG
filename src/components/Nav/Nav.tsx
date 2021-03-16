@@ -99,7 +99,7 @@ type Props = {
   toggleNav: Dispatch<SetStateAction<boolean>>
 }
 
-export const pages = ['About', 'Work', 'Contact'] as const
+export const pages = ['About', 'Portfolio', 'Contact'] as const
 
 type Pages = typeof pages[number]
 
@@ -110,9 +110,9 @@ const links: { path: string; name: Pages; isActive: boolean }[] = [
     isActive: true
   },
   {
-    path: '/work',
-    name: 'Work',
-    isActive: false
+    path: '/portfolio',
+    name: 'Portfolio',
+    isActive: true
   },
   {
     path: '/contact',
