@@ -7,12 +7,13 @@ const StyledCardList = styled(motion.ul)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   padding-bottom: 3rem;
   li {
     position: relative;
     height: 260px;
     width: 290px;
+    padding-bottom: 15px;
   }
 `
 
@@ -46,6 +47,12 @@ const StyledTitleWrapper = styled.div`
   h2 {
     font-size: 1.8rem;
     color: #fff;
+    font-family: 'FiraCodeLight';
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+      color: var(--thirdBackground);
+    }
   }
 `
 
