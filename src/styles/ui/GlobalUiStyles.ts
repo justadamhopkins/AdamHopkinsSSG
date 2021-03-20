@@ -22,6 +22,7 @@ export const GlobalUiStyles = createGlobalStyle`
     --font-size-medium: 4rem;
     --font-size-small: 3rem;
     --font-size-xtra-small: 2.5rem;
+    --font-heading: 'LeagueSpartanBold', sans-serif;
   }
   ${reset}
   *, *:before, *:after {
@@ -46,21 +47,21 @@ export const GlobalUiStyles = createGlobalStyle`
     height:100%;
   }
   .light {
-    --background: #c0c5d1;
-    --secondaryBackground: #673ab7;
-    --thirdBackground: #b0a8b9;
-    --fontPrimary: #000;
-    --fontPrimaryNav: #efefef;
+    --background: var(--lightGrey);
+    --secondaryBackground: var(--smoothPurple);
+    --thirdBackground: var(--smoothGrey);
+    --fontPrimary: var(--black);
+    --fontPrimaryNav: var(--grey);
   }
   .dark {
-    --background: #282c35;
-    --secondaryBackground: #e8b9d2;
-    --thirdBackground: #464655;
-    --fontPrimary: #fff;
-    --fontPrimaryNav: #464655;
+    --background: var(--materialBlack);
+    --secondaryBackground: var(--darkPink);
+    --thirdBackground: var(--darkGrey);
+    --fontPrimary: var(--white);
+    --fontPrimaryNav: var(--darkGrey);
   }
   h1,h2,h3,h4,p {
-    font-family: 'LeagueSpartanBold';
+    font-family: var(--font-heading);
     letter-spacing: 1px;
   }
   h1 {
