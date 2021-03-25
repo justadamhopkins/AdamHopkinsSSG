@@ -13,12 +13,11 @@ export const StyledProfileWrapper = styled(motion.section)`
   align-items: center;
   height: 100%;
   h2 {
-    padding-top: 20px;
-    font-size: var(--font-size-xtra-small);
+    /* padding-top: 20px; */
   }
   p {
-    padding-top: 20px;
-    font-size: var(--font-size-xtra-small);
+    /* padding-top: 20px; */
+
     font-family: 'FiraCodeLight';
   }
   div:first-child {
